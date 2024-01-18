@@ -13,7 +13,7 @@
       <%= link_to "Attendances", attendances_path, style: "color: white; text-decoration: none;" %>
       <br/>
       <br/>
-      <%= link_to 'Profile', profile_path(current_user), style: "color: white; text-decoration: none;" %>
+      <%= link_to 'Profile', profile_path, style: "color: white; text-decoration: none;" %>
       <br/>
       <br/>
       <% if can? :create, User %>

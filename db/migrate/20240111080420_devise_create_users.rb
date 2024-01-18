@@ -13,6 +13,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.1]
       t.date :JoiningDate
       t.boolean :isactive, default: true
       t.bigint :role_id
+      t.bigint :company_id
 
 
       t.string :email,              null: false, default: ""
