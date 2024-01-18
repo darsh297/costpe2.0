@@ -1,0 +1,84 @@
+<h2>Edit <%= resource_name.to_s.humanize %></h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "needs-validation", novalidate: true }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="mb-3">
+        <%= f.label :role_id, class: "form-label" %>
+        <%= f.collection_select :role_id, Role.all, :id, :role_name, { prompt: "Select a role" }, class: "form-select" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :first_name, class: "form-label" %>
+        <%= f.text_field :f_name, class: "form-control" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :last_name, class: "form-label" %>
+        <%= f.text_field :l_name, class: "form-control" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :DateofBirth, class: "form-label" %>
+        <%= f.date_field :DateofBirth, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="mb-3">
+        <%= f.label :account_number, class: "form-label" %>
+        <%= f.number_field :accountnumber, class: "form-control" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :ifsc, class: "form-label" %>
+        <%= f.text_field :ifsc, class: "form-control" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :Mobile_Number, class: "form-label" %>
+        <%= f.text_field :MobileNumber, class: "form-control" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :JoiningDate, class: "form-label" %>
+        <%= f.date_field :JoiningDate, class: "form-control" %>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Password-related fields... -->
+
+  <div class="mb-3">
+    <%= f.label :password, class: "form-label" %> <i>(leave blank if you don't want to change it)</i>
+    <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+    <% if @minimum_password_length %>
+      <small class="text-muted"><%= @minimum_password_length %> characters minimum</small>
+    <% end %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :password_confirmation, class: "form-label" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :current_password, class: "form-label" %> <i>(we need your current password to confirm your changes)</i>
+    <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.submit "Update", class: "btn btn-primary", style: "background-color: #365486; border-color: #365488;" %>
+    <%= link_to "Back", :back, class: "btn btn-primary ," %>
+  </div>
+<% end %>
+
+
+
